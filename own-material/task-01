@@ -1,0 +1,6 @@
+docker container run --publish 80:80 --name nginx --detach nginx
+docker container run --publish 8080:80 --name httpd --detach httpd
+docker container run --publish 3306:3306 --name mysql --detach --env MYSQL_RANDOM_ROOT_PASSWORD=yes mysql
+docker container logs mysql // look for "GENERATED ROOT PASSWORD" text
+docker container stop mysql httpd nginx
+docker container rm mysql httpd nginx
