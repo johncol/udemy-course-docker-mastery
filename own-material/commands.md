@@ -63,3 +63,9 @@ To remove containers `n` container
 ```
 docker container rm <name_1> <name_2> ... <name_n>
 ```
+
+List images found locally
+
+```
+docker image ls
+```
