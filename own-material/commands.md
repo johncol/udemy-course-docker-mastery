@@ -97,3 +97,43 @@ Find out the IP that my container has
 ```
 docker container inspect --format '{{ .NetworkSettings.IPAddress }}' <name>
 ```
+
+List all networks
+
+```
+docker network ls
+```
+
+See the current state and properties of a network called `<name>`
+
+```
+docker network inspect <name>
+```
+
+Creates a new network with the default driver `bridge`
+
+```
+docker network create <name>
+```
+
+Create a container attached to a specific network
+
+```
+docker container run -p 81:80 -d --network <network_name> --name <container_name> nginx
+```
+
+```
+docker network create --driver
+```
+
+Add a container to a network (a container may be in several networks at a time)
+
+```
+docker network connect <network_name> <container_name>
+```
+
+Remove a container from a network
+
+```
+docker network disconnect <network_name> <container_name>
+```
