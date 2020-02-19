@@ -85,3 +85,15 @@ To execute a process in a running container, e.g. bash, interactively, run
 ```
 docker container exec --tty --interactive <name> bash
 ```
+
+See port configuration for container `<name>`
+
+```
+docker container port <name>
+```
+
+Find out the IP that my container has
+
+```
+docker container inspect --format '{{ .NetworkSettings.IPAddress }}' <name>
+```
