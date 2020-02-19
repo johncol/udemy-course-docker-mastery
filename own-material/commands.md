@@ -69,3 +69,19 @@ List images found locally
 ```
 docker image ls
 ```
+
+See info about a container
+
+```
+docker container inspect <name>
+```
+
+```
+docker container stats
+```
+
+To execute a process in a running container, e.g. bash, interactively, run
+
+```
+docker container exec --tty --interactive <name> bash
+```
