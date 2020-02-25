@@ -137,3 +137,40 @@ Remove a container from a network
 ```
 docker network disconnect <network_name> <container_name>
 ```
+
+Check that two containers can talk to each other through docker dns service
+
+```
+docker container exec --interactive --tty <container_name1> ping <container_name2>
+```
+
+Create a couple of `elasticsearch` containers, both using the dns alias `elastic`
+
+```
+docker container run -d --net sample_net3 --network-alias elastic --name elastic1 elasticsearch:6.4.0
+docker container run -d --net sample_net3 --network-alias elastic --name elastic2 elasticsearch:6.4.0
+```
+
+Create container of image `alpine`, added to the network `sample_net3`, and execute `nslookup` to `elastic`. `--rm` is used to remove the container immediately after the command is run
+
+```
+docker container run --net sample_net3 --rm alpine nslookup elastic
+```
+
+Run `centos` container, added to network `sample_net3`, and executes `curl` to domain name `elastic` on port 9200, where elastic containers are listening
+
+```
+docker container run --rm --net sample_net3 centos curl -s elastic:9200
+```
+
+To see the layers of an image
+
+```
+docker image history <name>
+```
+
+TTo inspect the configuration and how to use an image
+
+```
+docker image inspect <name>
+```
