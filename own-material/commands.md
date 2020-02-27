@@ -169,8 +169,20 @@ To see the layers of an image
 docker image history <name>
 ```
 
-TTo inspect the configuration and how to use an image
+To inspect the configuration and how to use an image
 
 ```
 docker image inspect <name>
+```
+
+To create a new image tag from an existing one
+
+```
+docker image tag <name>:<tag> <new-name>:<new-tag>
+```
+
+To push an image
+
+```
+docker image push <name>:<tag>
 ```
