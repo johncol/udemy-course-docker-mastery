@@ -186,3 +186,10 @@ To push an image
 ```
 docker image push <name>:<tag>
 ```
+
+To login/logout
+
+```
+docker login
+docker logout
+```
