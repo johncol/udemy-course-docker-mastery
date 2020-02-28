@@ -193,3 +193,9 @@ To login/logout
 docker login
 docker logout
 ```
+
+To create a new image from a dockerfile
+
+```
+docker image build --tag <image_name>:<version/tag> <path_to_dockerfile>
+```
