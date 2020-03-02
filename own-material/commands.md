@@ -199,3 +199,21 @@ To create a new image from a dockerfile
 ```
 docker image build --tag <image_name>:<version/tag> <path_to_dockerfile>
 ```
+
+To clean all docker objects
+
+```
+docker system prune
+```
+
+To clean containers
+
+```
+docker container prune
+```
+
+To clean images
+
+```
+docker image prune
+```
