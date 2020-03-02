@@ -13,7 +13,22 @@
 # then start a new container from your Hub image, and watch how it auto downloads and runs
 # test again that it works at http://localhost
 
+FROM node:10.18.1-alpine3.9
 
+EXPOSE 3000
+
+RUN apk add --update tini
+RUN mkdir -p /usr/src/app
+
+WORKDIR /usr/src/app
+COPY package.json package.json
+
+RUN npm i\
+ && npm cache clean --force
+
+COPY . .
+
+CMD ["/sbin/tini", "--", "node", "./bin/www"]
 # Instructions from the app developer
 # - you should use the 'node' official image, with the alpine 6.x branch
 # - this app listens on port 3000, but the container should launch on port 80
