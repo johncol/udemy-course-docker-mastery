@@ -217,3 +217,27 @@ To clean images
 ```
 docker image prune
 ```
+
+To manually create a volume
+
+```
+docker volume create <volume_name>
+```
+
+To specify a container which volume to use:
+
+```
+docker container run --volume <name>:<path> <image_name>
+```
+
+e.g. mysql image uses a volume in /var/lib/mysql (check https://github.com/docker-library/mysql/blob/69e4645ced5c687b861ce4a4e8aa3ca4600152b6/8.0/Dockerfile#L69), so it would be:
+
+```
+docker container run --volume mysql_volume:/var/lib/mysql mysql:latest
+```
+
+To create a bind mount, use a path instead of a name when running a container with a specific volume:
+
+```
+docker container run --volume /some/path/in/the/host:/path/in/the/container <image_name>
+```
