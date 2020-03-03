@@ -52,6 +52,12 @@ To see the logs of a container
 docker container logs <name>
 ```
 
+To see the logs of a container and keep looking for new entries
+
+```
+docker container logs -f <name>
+```
+
 To see the processes inside a container with name `<name>`
 
 ```
