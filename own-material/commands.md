@@ -241,3 +241,9 @@ To create a bind mount, use a path instead of a name when running a container wi
 ```
 docker container run --volume /some/path/in/the/host:/path/in/the/container <image_name>
 ```
+
+To list images filtered byt by repositories, e.g. `postgres`:
+
+```
+docker image ls --filter=reference=postgres
+```
