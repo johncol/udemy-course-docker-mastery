@@ -253,3 +253,13 @@ To list images filtered byt by repositories, e.g. `postgres`:
 ```
 docker image ls --filter=reference=postgres
 ```
+
+Docker compose
+
+```
+docker-compose up
+docker-compose up -d
+docker-compose down
+docker-compose logs
+docker-compose logs -f
+```
