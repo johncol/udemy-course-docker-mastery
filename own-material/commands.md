@@ -263,3 +263,39 @@ docker-compose down
 docker-compose logs
 docker-compose logs -f
 ```
+
+Enable swarm in your docker server
+
+```
+docker swarm init
+```
+
+List all the service you have
+
+```
+docker service ls
+```
+
+Create a service
+
+```
+docker service create --name <service_name> <image_name> <command> <command-args>
+```
+
+e.g.
+
+```
+docker service create alpine ping 8.8.8.8
+```
+
+See all the tasks (containers) in your service
+
+```
+docker service ps <service_name>
+```
+
+Update the number of tasks/containers that a service has
+
+```
+docker service update --replicas <N> <service_name>
+```
