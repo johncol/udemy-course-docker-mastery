@@ -299,3 +299,35 @@ Update the number of tasks/containers that a service has
 ```
 docker service update --replicas <N> <service_name>
 ```
+
+## docker swarm
+
+To initialize a node as a swarm leader
+
+```
+docker swarm init --advertise-addr <ip_address>
+```
+
+To list all nodes in a swarm, run
+
+```
+docker node ls
+```
+
+After that you'll get a token that can be sued by other nodes to join that swarm, something like
+
+```
+docker swarm join --token SWMTKN-1-15d49s35mx7qyxjed6ixcu2ovrw8neq3uhgc7wwk6jx3b02gpq-2a7h7dqi6j0yr2s3j5d3vnqem 192.168.0.46:2377
+```
+
+To obtain a manager token, run
+
+```
+docker swarm join-token manager
+```
+
+To update the role of a node
+
+```
+docker node update --role <role> <node>
+```
