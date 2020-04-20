@@ -331,3 +331,31 @@ To update the role of a node
 ```
 docker node update --role <role> <node>
 ```
+
+Some services commands
+
+```
+docker service create -p <local_port>:<container_port> --name <service_name> <image>
+```
+
+```
+docker service scale <service_name>=<instances_number>
+```
+
+```
+docker service update --image myapp:1.0.1 <service_name>
+```
+
+```
+docker stack deploy <stack_name>
+```
+
+Healthchecks:
+
+```
+docker container run --health-cmd="<image_health_command> || exit 1" <image>
+```
+
+```
+docker service create --health-cmd="<image_health_command> || exit 1" <image> <service_name>
+```
