@@ -359,3 +359,11 @@ docker container run --health-cmd="<image_health_command> || exit 1" <image>
 ```
 docker service create --health-cmd="<image_health_command> || exit 1" <image> <service_name>
 ```
+
+To create your own local registry:
+
+```
+docker container run --name registry -p 5000:5000 -d -v $(pwd)/registry-data:/var/lib/registry registry
+```
+
+Now, you can visit `http://localhost:5000/v2/_catalog`
